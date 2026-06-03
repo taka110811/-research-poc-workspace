@@ -13,9 +13,11 @@ Issue #1 has been converted into a PoC design. The PoC has not been executed bec
 
 - Existing baseline: LightGBM
 - Candidate model: TimesFM
+- Additional candidates from literature review: Chronos-Bolt/Chronos-2, Moirai, TinyTimeMixer
 - Target setting: new DHC cold-start forecasting
 - Metrics: MAE, MAPE, MAE / avg_demand
 - Missing execution inputs are explicit in `poc/runs/2026-06-03/report.md`.
+- Literature review is recorded in `notes/literature_review.md`.
 
 ## What Worked
 
@@ -34,7 +36,7 @@ Issue #1 has been converted into a PoC design. The PoC has not been executed bec
 - Add a minimal `data/demand.csv` or document where the private data should be mounted.
 - Add or reference the existing LightGBM baseline.
 - Implement a small evaluation script that computes MAE, MAPE, and MAE / avg_demand.
-- Run TimesFM zero-shot before attempting fine-tuning.
+- Run TimesFM zero-shot and at least one additional TSFM zero-shot candidate before attempting fine-tuning.
 - Add TimesFM fine-tuning only after the zero-shot baseline is measured.
 
 ## Open Questions

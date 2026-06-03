@@ -4,6 +4,8 @@
 
 Evaluate whether TimesFM can improve demand forecasting for a new district heating and cooling site under cold-start conditions where the target site has little or no training history.
 
+The first PoC should not assume TimesFM is the only useful candidate. Recent energy-load forecasting studies report strong model and feature-condition dependence, so at least one additional time-series foundation model should be evaluated alongside TimesFM.
+
 ## Research Question
 
 Can TimesFM, used zero-shot or adapted with data from other DHC sites, outperform the existing LightGBM baseline for a new DHC site's demand forecast?
@@ -26,6 +28,7 @@ For this PoC, the important implication is not that TimesFM will automatically b
 - One DHC site held out as the target cold-start site.
 - LightGBM baseline comparison.
 - TimesFM zero-shot evaluation.
+- At least one additional time-series foundation model comparison, such as Chronos-Bolt, Chronos-2, Moirai, or TinyTimeMixer.
 - Optional TimesFM fine-tuning or LoRA adaptation if feasible.
 - Metrics: MAE, MAPE, MAE / avg_demand.
 
@@ -99,6 +102,7 @@ Minimum PoC:
 
 - `lightgbm_target_limited`: LightGBM trained only on available target-site history.
 - `timesfm_zero_shot`: TimesFM forecast using available target context.
+- `chronos_or_ttm_zero_shot`: one additional TSFM zero-shot candidate to check whether TimesFM is uniquely promising.
 - `seasonal_naive`: previous day or previous week same time.
 
 Extended PoC:
@@ -106,6 +110,7 @@ Extended PoC:
 - `lightgbm_source_plus_target`: LightGBM trained on source sites plus limited target-site history, with `site_id` or site embeddings if available.
 - `timesfm_lora_source`: TimesFM fine-tuned or LoRA-adapted on source sites.
 - `timesfm_xreg`: TimesFM with covariate support if weather and calendar variables are available and setup is feasible.
+- `moirai_or_ttm_exogenous`: a multivariate or covariate-capable TSFM if external features are central to the existing LightGBM baseline.
 
 ### Forecast Horizon
 
@@ -130,6 +135,8 @@ MAPE should either exclude near-zero demand timestamps or use an epsilon guard. 
 
 - GitHub Issue #1:
   - `https://github.com/taka110811/-research-poc-workspace/issues/1`
+- Literature review:
+  - `notes/literature_review.md`
 - TimesFM sources:
   - `https://github.com/google-research/timesfm`
   - `https://research.google/blog/a-decoder-only-foundation-model-for-time-series-forecasting/`
@@ -161,9 +168,10 @@ site_id, history_days, model, horizon, mae, mape, mae_over_avg, notes
 4. Implement seasonal naive baseline.
 5. Reproduce or call existing LightGBM baseline.
 6. Run TimesFM zero-shot for the same target windows.
-7. If feasible, run source-site TimesFM LoRA fine-tuning.
-8. Calculate MAE, MAPE, MAE / avg_demand.
-9. Write run report and decision memo.
+7. Run at least one additional TSFM zero-shot candidate, preferably Chronos-Bolt/Chronos-2 or TinyTimeMixer.
+8. If feasible, run source-site TimesFM LoRA fine-tuning.
+9. Calculate MAE, MAPE, MAE / avg_demand.
+10. Write run report and decision memo.
 
 ## Required Data Before Running
 
@@ -194,6 +202,7 @@ temperature,humidity,weekday,holiday,hour
 - If TimesFM is fine-tuned on source sites but LightGBM is not allowed source-site training, the comparison may unfairly favor TimesFM.
 - MAPE may be misleading if demand approaches zero.
 - Target-site selection may dominate results; at least two holdout sites are preferable after the first PoC.
+- Foundation models may not beat simple or LightGBM baselines in stable demand/climate conditions, so the PoC must include simple baselines and clear failure criteria.
 
 ## Decision Rule
 
