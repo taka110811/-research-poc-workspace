@@ -11,12 +11,18 @@
 ├── scripts/            # 複数テーマで使う共通スクリプト
 ├── templates/          # 調査開始・PoC設計のテンプレート
 ├── topics/
-│   └── byzantine-resilient-distributed-optimization/
+│   ├── byzantine-resilient-distributed-optimization/
 │       ├── src/        # テーマ固有の実験スクリプト
 │       ├── papers/     # 論文PDF、Markdown、要約、図
 │       ├── notes/      # 調査メモ
 │       ├── poc/        # PoC設計、実行結果、判断
 │       └── results/    # 検索結果や実験結果
+│   └── timesfm-dhc-demandfc-coldstart-problem/
+│       ├── src/
+│       ├── papers/
+│       ├── notes/
+│       ├── poc/
+│       └── results/
 └── README.md
 ```
 
@@ -55,6 +61,31 @@ topics/byzantine-resilient-distributed-optimization/
 │   └── decision.md
 └── results/
     └── arxiv-search-results.json
+```
+
+### TimesFM DHC Demand Forecast Cold Start Problem
+
+新しい地冷の需要予測において、十分な対象地冷データがないコールドスタート条件で、TimesFMが既存LightGBMベースラインより有効か検証するPoC。
+
+Issue:
+
+- https://github.com/taka110811/-research-poc-workspace/issues/1
+
+主要ファイル:
+
+```text
+topics/timesfm-dhc-demandfc-coldstart-problem/
+├── research_brief.md
+├── src/
+├── papers/
+├── notes/
+├── poc/
+│   ├── design.md
+│   ├── runs/
+│   │   └── 2026-06-03/
+│   │       └── report.md
+│   └── decision.md
+└── results/
 ```
 
 ## セットアップ
