@@ -1,0 +1,56 @@
+[
+  {
+    "arxiv_id": "1907.02664v2",
+    "title": "Data Encoding for Byzantine-Resilient Distributed Optimization",
+    "authors": [
+      "Deepesh Data",
+      "Linqi Song",
+      "Suhas Diggavi"
+    ],
+    "abstract": "We study distributed optimization in the presence of Byzantine adversaries, where both data and computation are distributed among $m$ worker machines, $t$ of which may be corrupt. The compromised nodes may collaboratively and arbitrarily deviate from their pre-specified programs, and a designated (master) node iteratively computes the model/parameter vector for generalized linear models. In this work, we primarily focus on two iterative algorithms: Proximal Gradient Descent (PGD) and Coordinate Descent (CD). Gradient descent (GD) is a special case of these algorithms. PGD is typically used in the data-parallel setting, where data is partitioned across different samples, whereas, CD is used in the model-parallelism setting, where data is partitioned across the parameter space.\n  In this paper, we propose a method based on data encoding and error correction over real numbers to combat adversarial attacks. We can tolerate up to $t\\leq \\lfloor\\frac{m-1}{2}\\rfloor$ corrupt worker nodes, which is information-theoretically optimal. We give deterministic guarantees, and our method does not assume any probability distribution on the data. We develop a {\\em sparse} encoding scheme which enables computationally efficient data encoding and decoding. We demonstrate a trade-off between the corruption threshold and the resource requirements (storage, computational, and communication complexity). As an example, for $t\\leq\\frac{m}{3}$, our scheme incurs only a {\\em constant} overhead on these resources, over that required by the plain distributed PGD/CD algorithms which provide no adversarial protection. To the best of our knowledge, ours is the first paper that makes CD secure against adversarial attacks.\n  Our encoding scheme extends efficiently to the data streaming model and for stochastic gradient descent (SGD). We also give experimental results to show the efficacy of our proposed schemes.",
+    "published": "2019-07-05",
+    "updated": "2020-11-04",
+    "categories": [
+      "cs.DC",
+      "cs.CR",
+      "cs.LG"
+    ],
+    "url": "http://arxiv.org/abs/1907.02664v2",
+    "pdf_url": "https://arxiv.org/pdf/1907.02664v2"
+  },
+  {
+    "arxiv_id": "2005.07866v1",
+    "title": "Byzantine-Resilient SGD in High Dimensions on Heterogeneous Data",
+    "authors": [
+      "Deepesh Data",
+      "Suhas Diggavi"
+    ],
+    "abstract": "We study distributed stochastic gradient descent (SGD) in the master-worker architecture under Byzantine attacks. We consider the heterogeneous data model, where different workers may have different local datasets, and we do not make any probabilistic assumptions on data generation. At the core of our algorithm, we use the polynomial-time outlier-filtering procedure for robust mean estimation proposed by Steinhardt et al. (ITCS 2018) to filter-out corrupt gradients. In order to be able to apply their filtering procedure in our {\\em heterogeneous} data setting where workers compute {\\em stochastic} gradients, we derive a new matrix concentration result, which may be of independent interest.\n  We provide convergence analyses for smooth strongly-convex and non-convex objectives. We derive our results under the bounded variance assumption on local stochastic gradients and a {\\em deterministic} condition on datasets, namely, gradient dissimilarity; and for both these quantities, we provide concrete bounds in the statistical heterogeneous data model. We give a trade-off between the mini-batch size for stochastic gradients and the approximation error. Our algorithm can tolerate up to $\\frac{1}{4}$ fraction Byzantine workers. It can find approximate optimal parameters in the strongly-convex setting exponentially fast and reach to an approximate stationary point in the non-convex setting with a linear speed, thus, matching the convergence rates of vanilla SGD in the Byzantine-free setting.\n  We also propose and analyze a Byzantine-resilient SGD algorithm with gradient compression, where workers send $k$ random coordinates of their gradients. Under mild conditions, we show a $\\frac{d}{k}$-factor saving in communication bits as well as decoding complexity over our compression-free algorithm without affecting its convergence rate (order-wise) and the approximation error.",
+    "published": "2020-05-16",
+    "updated": "2020-05-16",
+    "categories": [
+      "stat.ML",
+      "cs.CR",
+      "cs.DC",
+      "cs.LG"
+    ],
+    "url": "http://arxiv.org/abs/2005.07866v1",
+    "pdf_url": "https://arxiv.org/pdf/2005.07866v1"
+  },
+  {
+    "arxiv_id": "1110.5626v1",
+    "title": "Constraints on dark energy from H II starburst galaxy apparent magnitude versus redshift data",
+    "authors": [
+      "Data Mania",
+      "Bharat Ratra"
+    ],
+    "abstract": "In this paper we use H II starburst galaxy apparent magnitude versus redshift data from Siegel et al. (2005) to constrain dark energy cosmological model parameters. These constraints are generally consistent with those derived using other data sets, but are not as restrictive as the tightest currently available constraints.",
+    "published": "2011-10-25",
+    "updated": "2011-10-25",
+    "categories": [
+      "astro-ph.CO"
+    ],
+    "url": "http://arxiv.org/abs/1110.5626v1",
+    "pdf_url": "https://arxiv.org/pdf/1110.5626v1"
+  }
+]

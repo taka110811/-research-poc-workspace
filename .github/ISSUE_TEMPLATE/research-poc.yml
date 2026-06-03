@@ -1,0 +1,150 @@
+name: Research PoC Request
+description: Start or update a research theme by working backward from PoC design and execution.
+title: "[Research PoC] "
+labels:
+  - research
+  - poc
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to send research instructions from mobile.
+        Fill unknown fields with `TBD`. Codex will turn this into `research_brief.md`, `poc/design.md`, run reports, and a decision memo.
+
+  - type: input
+    id: theme_name
+    attributes:
+      label: Theme name
+      description: Short, filesystem-friendly research theme name.
+      placeholder: byzantine-resilient-distributed-optimization
+    validations:
+      required: true
+
+  - type: textarea
+    id: short_description
+    attributes:
+      label: Short description
+      description: What is this research theme about?
+      placeholder: Investigate whether data encoding can make distributed optimization resilient to Byzantine worker responses.
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired_output
+    attributes:
+      label: Desired output
+      description: What should Codex produce?
+      value: |
+        - research_brief.md
+        - poc/design.md
+        - poc/runs/<date>/report.md
+        - poc/decision.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: core_question
+    attributes:
+      label: Core question
+      description: What should the PoC answer?
+      placeholder: Can this method be reproduced locally, and does it produce evidence strong enough to continue?
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation / why now
+      description: Why is this worth investigating now?
+      placeholder: I want to decide whether this direction is worth deeper implementation work.
+    validations:
+      required: false
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Seed sources
+      description: Papers, URLs, repositories, datasets, keywords, or notes to start from.
+      placeholder: |
+        - arXiv:
+        - GitHub:
+        - Keywords:
+        - Dataset:
+    validations:
+      required: false
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is in scope and out of scope?
+      value: |
+        In scope:
+        - TBD
+
+        Out of scope:
+        - TBD
+    validations:
+      required: false
+
+  - type: textarea
+    id: poc_direction
+    attributes:
+      label: PoC direction
+      description: Hypothesis, minimal implementation, baseline, metrics, and success criteria.
+      value: |
+        Hypothesis:
+        - TBD
+
+        Minimal implementation:
+        - TBD
+
+        Baseline:
+        - TBD
+
+        Metrics:
+        - TBD
+
+        Success criteria:
+        - TBD
+
+        Failure criteria:
+        - TBD
+    validations:
+      required: false
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Runtime, language, hardware, deadline, reproducibility, or other limits.
+      value: |
+        - Run locally if feasible.
+        - Keep the PoC small enough to inspect and reproduce.
+        - Record commands, parameters, metrics, and interpretation.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: requested_action
+    attributes:
+      label: Requested action
+      description: What should Codex do first?
+      options:
+        - Create or update research_brief.md only
+        - Create PoC design
+        - Create PoC design and run if feasible
+        - Analyze sources first
+        - Update existing PoC report or decision
+      default: 2
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra_instruction
+    attributes:
+      label: Extra instruction
+      description: Anything else Codex should know.
+      placeholder: Prefer Python. Avoid large downloads. Compare against a simple baseline.
+    validations:
+      required: false
